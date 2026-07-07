@@ -41,6 +41,23 @@ function showSettings() {
   loadSettingsData();
 }
 
+function toggleMobileNav() {
+  document.getElementById('navbarNav').classList.toggle('mobile-open');
+}
+
+function closeMobileNav() {
+  document.getElementById('navbarNav').classList.remove('mobile-open');
+}
+
+document.addEventListener('click', (event) => {
+  const nav = document.getElementById('navbarNav');
+  const toggle = document.getElementById('navbarToggle');
+  if (nav && nav.classList.contains('mobile-open') &&
+      !nav.contains(event.target) && !toggle.contains(event.target)) {
+    closeMobileNav();
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   loadTheme();
   bindCvInputs();
