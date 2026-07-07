@@ -22,9 +22,12 @@
                 <div class="logo-icon"></div>
                 <span style="font-weight: 700; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">CVCraft Pro</span>
             </a>
-            <div class="navbar-nav">
-                <a href="#" class="nav-link" onclick="showHome()">Home</a>
-                <a href="#" class="nav-link" onclick="showFeatures()">Features</a>
+            <button class="navbar-toggle" id="navbarToggle" onclick="toggleMobileNav()" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="navbar-nav" id="navbarNav">
+                <a href="#" class="nav-link" onclick="showHome(); closeMobileNav();">Home</a>
+                <a href="#" class="nav-link" onclick="showFeatures(); closeMobileNav();">Features</a>
                 <div class="user-menu" id="userMenu" style="display: none;">
                     <div class="user-avatar" onclick="toggleUserMenu()" id="userAvatar">JD</div>
                     <div class="user-dropdown" id="userDropdown">
@@ -35,8 +38,8 @@
                     </div>
                 </div>
                 <div id="authButtons">
-                    <a href="#" class="nav-link" onclick="showAuthModal('login')">Login</a>
-                    <a href="#" class="nav-link" onclick="showAuthModal('signup')">Sign Up</a>
+                    <a href="#" class="nav-link" onclick="showAuthModal('login'); closeMobileNav();">Login</a>
+                    <a href="#" class="nav-link" onclick="showAuthModal('signup'); closeMobileNav();">Sign Up</a>
                 </div>
                 <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
             </div>
