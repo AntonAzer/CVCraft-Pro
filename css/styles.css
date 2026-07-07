@@ -806,12 +806,110 @@ body.dark-mode .chatbot-input {
 body.dark-mode .status-success { background: #27ae60; color: white; }
 body.dark-mode .status-pending { background: #f39c12; color: white; }
 
+.navbar-toggle {
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.navbar-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
 @media (max-width: 768px) {
     .main-content { grid-template-columns: 1fr; }
     .template-modern { grid-template-columns: 1fr; }
     .template-modern .cv-sidebar { order: 2; }
     .header h1 { font-size: 2rem; }
     .form-section, .preview-section { padding: 20px; }
+
+    body { padding: 10px; }
+    .container { margin-top: 70px; border-radius: 12px; }
+
+    .navbar-content { flex-wrap: nowrap; padding: 0 15px; }
+    .navbar-toggle { display: block; }
+
+    .navbar-nav {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(44, 62, 80, 0.98);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 0;
+        max-height: calc(100vh - 64px);
+        overflow-y: auto;
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.2s ease;
+    }
+
+    .navbar-nav.mobile-open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 14px 20px;
+        border-radius: 0;
+        text-align: left;
+    }
+
+    .navbar-nav #authButtons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar-nav .theme-toggle {
+        margin: 10px 20px 0;
+        align-self: flex-start;
+    }
+
+    .user-menu {
+        padding: 8px 20px;
+    }
+
+    .user-dropdown {
+        position: static;
+        box-shadow: none;
+        margin-top: 8px;
+        border-radius: 8px;
+        background: rgba(0,0,0,0.15);
+    }
+
+    .user-dropdown a { color: white; }
+    body.dark-mode .user-dropdown a { color: #e0e0e0; }
+
+    .modal { padding: 25px 20px; }
+
+    .header { padding: 25px 15px; }
+    .header p { font-size: 1rem; }
+
+    .template-buttons { gap: 6px; }
+    .template-btn { padding: 8px 14px; font-size: 0.8rem; }
+
+    .chatbot-window {
+        width: calc(100vw - 40px);
+        max-width: 350px;
+        right: -10px;
+    }
+
+    .dashboard-header { padding: 30px 15px; }
+    .dashboard-content { padding: 20px 15px; }
+}
+
+@media (max-width: 420px) {
+    .header h1 { font-size: 1.6rem; }
+    .navbar-brand span { font-size: 1.1rem; }
 }
 
 @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
